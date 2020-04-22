@@ -1,0 +1,7 @@
+A occurs three times in dupLine.txt
+B is duplicated in dupLine.txt
+B is duplicated in dupLine.txt
+A occurs three times in dupLine.txt
+C is duplicated over files
+A occurs three times in dupLine.txt
+D is not duplicated
