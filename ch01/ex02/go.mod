@@ -1,3 +1,3 @@
-module example.com/oyama1/ex02
+module github.com/oyama1/go_training/ch01/ex02
 
 go 1.14
