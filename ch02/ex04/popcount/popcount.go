@@ -29,10 +29,16 @@ func PopCountForLoop(x uint64) int {
 	return count
 }
 
-func PopCount64times(x uint64) int {
-	count := 0
-	for i := 0; i < 64; i++ {
-		count += int(pc[byte(x>>(uint(i)*8))])
+func CountBy64TimesShift(x uint64) int {
+	count := 0                      // 最下位の桁数をクリアした数
+	for i := uint(0); i < 64; i++ { // i に xを代入し、x分だけループします
+		if x&(1<<i) != 0 {
+			// 1<<i = << 左シフト、整数は2倍 / & = 論理積、ビットの桁同士が1のものだけ残る
+			// 例 : 2(10) を 左へシフト = 4(100)へ、最下位が0になる = 1のフラグが立つものが左にずれていく
+			// なので、元のxのビットに対して、1桁ずつ下の桁から論理積に欠けていく、これを64回繰り返す
+			count++ // count を加算
+		}
 	}
+
 	return count
 }
